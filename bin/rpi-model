@@ -1,9 +1,5 @@
 #!/bin/bash
 
-if which uname > /dev/null && [ `uname` == "Linux" ]
-then
-	curl -s https://elinux.org/RPi_HardwareHistory | grep -A 4 td\>`awk '/^Revision/ {sub("^1000", "", $3); print $3}' /proc/cpuinfo` | tail -1 | sed 's/<.*>/Raspberry Pi/'
-else
-	echo "Not on Linux/Raspberry"
-fi
+source check-rpi
 
+curl -s https://elinux.org/RPi_HardwareHistory | grep -A 4 td\>`awk '/^Revision/ {sub("^1000", "", $3); print $3}' /proc/cpuinfo` | tail -1 | sed 's/<.*>/Raspberry Pi/'

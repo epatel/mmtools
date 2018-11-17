@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if ! ( which uname > /dev/null && [ `uname` == "Linux" ] )
+then
+	echo "Not on Linux/Raspberry"
+	exit 1
+fi
