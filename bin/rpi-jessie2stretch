@@ -1,0 +1,39 @@
+#!/bin/bash
+
+sed -i 's/jessie/stretch/g' /etc/apt/sources.list
+sed -i 's/jessie/stretch/g' /etc/apt/sources.list.d/raspi.list
+
+echo ""
+read -r -n 0 -s -p "Enable PuTTY logging and press ENTER to continue "
+echo ""
+
+echo ""
+echo -n "Start Time: "
+date
+echo ""
+
+# Update/Upgrade Raspbian
+echo ""
+echo "Updating/Upgrading Raspbian"
+if [ -e /etc/apt/listchanges.conf ]; then
+  sed -i 's/frontend=pager/frontend=text/' /etc/apt/listchanges.conf
+fi
+apt-get -y update
+apt-get -y upgrade
+apt-get -y dist-upgrade
+if [ -e /etc/apt/listchanges.conf ]; then
+  sed -i 's/frontend=text/frontend=pager/' /etc/apt/listchanges.conf
+fi
+apt-get -y install rpi-update
+SKIP_WARNING=1 rpi-update
+echo "Updating/Upgrading completed"
+echo ""
+
+# Cleanup
+apt-get -y autoremove
+apt-get -y clean
+
+echo ""
+echo -n "Finish Time: "
+date
+echo ""
