@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cat <<EOF
+
+    Access target-host from ssh-host:
+
+    ssh -R :<ssh-host-port>:<target-host>:<target-port> <username@ssh-host>
+
+    Example:
+
+    ssh -R :8080:192.168.24.1:80 epatel@rpi.memention.net
+
+EOF
