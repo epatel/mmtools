@@ -21,13 +21,13 @@ if [ -e /etc/apt/listchanges.conf ]; then
   sed -i 's/frontend=pager/frontend=text/' /etc/apt/listchanges.conf
 fi
 
-sudo apt-get remove apt-listchanges
+apt -y remove apt-listchanges
 
-apt-get -y update
-apt-get -y upgrade
-apt-get -y dist-upgrade
+apt -y update
+apt -y upgrade
+apt -y dist-upgrade
 
-sudo apt purge timidity lxmusic gnome-disk-utility deluge-gtk evince wicd wicd-gtk clipit usermode gucharmap gnome-system-tools pavucontrol
+apt -y purge timidity lxmusic gnome-disk-utility deluge-gtk evince wicd wicd-gtk clipit usermode gucharmap gnome-system-tools pavucontrol
 
 if [ -e /etc/apt/listchanges.conf ]; then
   sed -i 's/frontend=text/frontend=pager/' /etc/apt/listchanges.conf
@@ -38,8 +38,8 @@ echo "Updating/Upgrading completed"
 echo ""
 
 # Cleanup
-apt-get -y autoremove
-apt-get -y clean
+apt -y autoremove
+apt -y clean
 
 echo ""
 echo -n "Finish Time: "
