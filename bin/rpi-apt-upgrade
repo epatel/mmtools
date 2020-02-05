@@ -9,7 +9,7 @@ myfiglet "Upgrade"
 sudo apt upgrade -y
 
 myfiglet "Clean"
-sudo apt autoremove
+sudo apt autoremove -y
 
 myfiglet "Dist upgrade"
-sudo apt dist-upgrade
+sudo apt dist-upgrade -y
