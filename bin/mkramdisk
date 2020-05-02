@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if ! df /ram >& /dev/null
+then
+  mkdir /ram
+  sudo mount -osize=20m tmpfs /ram -t tmpfs
+  echo "/ram created"
+else
+  echo "/ram already exists"
+fi
