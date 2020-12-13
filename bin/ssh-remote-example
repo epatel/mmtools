@@ -2,12 +2,20 @@
 
 cat <<EOF
 
-    Access target-host from ssh-host:
+    Access (from local) target-host on ssh-host:
 
     ssh -R :<ssh-host-port>:<target-host>:<target-port> <username@ssh-host>
 
-    Example:
+
+    Access (remote via ssh-host) target-host from local-host:
+
+    ssh -L :<local-port>:<target-host>:<target-port> <username@ssh-host>
+
+
+    Examples:
 
     ssh -R :8080:192.168.24.1:80 epatel@rpi.memention.net
+
+    ssh -L :8080:192.168.50.1:80 pi@192.168.0.18
 
 EOF
