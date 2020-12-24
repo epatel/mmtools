@@ -2,7 +2,7 @@
 
 if ! df /ram | grep -q /ram
 then
-  sudo mkdir /ram
+  sudo mkdir /ram >& /dev/null
   sudo mount -osize=20m tmpfs /ram -t tmpfs
   echo "/ram created"
 else
