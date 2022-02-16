@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function myfiglet { if which figlet > /dev/null ; then figlet -f smslant "$*" ; fi }
+function myfiglet { put_line ; if which figlet > /dev/null ; then figlet -f smslant "$*" ; else echo "##### $* #####" ; fi }
 
 myfiglet "Update"
 sudo apt update
@@ -13,3 +13,5 @@ sudo apt autoremove -y
 
 myfiglet "Dist upgrade"
 sudo apt dist-upgrade -y
+
+myfiglet "Done"
