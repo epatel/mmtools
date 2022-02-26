@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -i
 
 stty size > /dev/null
 printf '%*s\n' "$COLUMNS" '' | tr ' ' -
