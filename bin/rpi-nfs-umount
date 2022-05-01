@@ -1,0 +1,24 @@
+#!/bin/bash
+
+source check-rpi
+
+MYIP=`ifconfig eth0 | grep -oE "inet [[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+" | sed 's/inet //'`
+
+function nfs() {
+jq -r ".[\"$1\"]" <<EOF
+{
+  "193.150.14.72": "nfs-rpi.best-hosting.cz:/home/174655588ac9d946e2e9",
+  "193.150.14.119": "nfs-rpi.best-hosting.cz:/home/22996962a2030d7a8b57",
+  "193.150.14.167": "nfs-rpi.best-hosting.cz:/home/297996e4a4acdb20abc1"
+}
+EOF
+}
+
+if df | grep -q `nfs $MYIP`
+then
+  echo "Unmounting NFS at $HOME/nfs"
+  sudo umount $HOME/nfs
+else
+  echo "Not mounted"
+  exit
+fi
