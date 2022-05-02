@@ -27,6 +27,7 @@ then
 fi
 
 echo "Mounting NFS at $HOME/nfs"
+echo $MYIP `nfs $MYIP`
 sudo mount `nfs $MYIP` $HOME/nfs
 
 #sudo mount nfs-rpi.best-hosting.cz:/home/174655588ac9d946e2e9 /home/epatel/nfs
