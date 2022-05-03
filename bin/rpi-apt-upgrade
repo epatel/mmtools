@@ -1,17 +1,22 @@
 #!/bin/bash
 
-function myfiglet { put_line ; if which figlet > /dev/null ; then figlet -f smslant "$*" ; else echo "##### $* #####" ; fi }
+if [ "$1" != "" ]
+then
+  echo $1
+else
+  function myfiglet { put_line ; if which figlet > /dev/null ; then figlet -f smslant "$*" ; else echo "##### $* #####" ; fi }
 
-myfiglet "Update"
-sudo apt update
+  myfiglet "Update"
+  sudo apt update
 
-myfiglet "Upgrade"
-sudo apt upgrade -y
+  myfiglet "Upgrade"
+  sudo apt upgrade -y
 
-myfiglet "Clean"
-sudo apt autoremove -y
+  myfiglet "Clean"
+  sudo apt autoremove -y
 
-myfiglet "Dist upgrade"
-sudo apt dist-upgrade -y
+  myfiglet "Dist upgrade"
+  sudo apt dist-upgrade -y
 
-myfiglet "Done"
+  myfiglet "Done"
+fi
