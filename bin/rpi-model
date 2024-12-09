@@ -1,5 +1,9 @@
 #!/bin/bash
 
-source check-rpi
+#source check-rpi
 
-curl -s https://elinux.org/RPi_HardwareHistory | grep -A 4 td\>`awk '/^Revision/ {sub("^1000", "", $3); print $3}' /proc/cpuinfo` | tail -1 | sed 's/<.*>/Raspberry Pi/'
+#curl -s https://elinux.org/RPi_HardwareHistory | grep -A 4 td\>`awk '/^Revision/ {sub("^1000", "", $3); print $3}' /proc/cpuinfo` | tail -1 | sed 's/<.*>/Raspberry Pi/'
+
+cat /sys/firmware/devicetree/base/model
+
+echo
