@@ -10,7 +10,8 @@ jq -r ".[\"$1\"]" <<EOF
   "193.150.14.72": "nfs-rpi.best-hosting.cz:/home/174655588ac9d946e2e9",
   "193.150.14.119": "nfs-rpi.best-hosting.cz:/home/22996962a2030d7a8b57",
   "193.150.14.167": "nfs-rpi.best-hosting.cz:/home/297996e4a4acdb20abc1",
-  "193.150.14.19": "nfs-rpi.best-hosting.cz:/home/42384dd4343dcbb36b6d"
+  "193.150.14.19": "nfs-rpi.best-hosting.cz:/home/42384dd4343dcbb36b6d",
+  "193.150.14.46": "nfs-rpi.best-hosting.cz:/home/458327d14934524bd3af"
 }
 EOF
 }
